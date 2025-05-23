@@ -1,0 +1,8 @@
+require("lwhxe.remap")
+require("lwhxe.config.lazy")
+require("after.plugin.telescope")
+require("after.plugin.telekasten")
+require("after.plugin.colors")
+require("after.plugin.md-preview")
+require("after.plugin.todo-comments")
+require("lwhxe.set")
