@@ -62,7 +62,7 @@ return {
         -- Configure Python debugging
         dap.adapters.python = {
             type = 'executable';
-            command = 'C:/Users/Alexander Bohman/AppData/Local/Programs/Python/Python313/pythonw.exe';
+            command = 'pythonw';
             args = { '-m', 'debugpy.adapter' };
         }
 
@@ -73,7 +73,7 @@ return {
                 name = 'Launch file';
                 program = "${file}";  -- This will launch the current file
                 pythonPath = function()
-                    return 'C:/Users/Alexander Bohman/AppData/Local/Programs/Python/Python313/pythonw.exe'  -- Adjust this to your Python path
+                    return 'pythonw'  -- Adjust this to your Python path
                 end;
             },
         }
@@ -146,7 +146,7 @@ return {
 			function(server_name)
 				local opts = {}
 				if server_name == "pylsp" then
-                    opts.cmd = {"C:/Users/Alexander Bohman/AppData/Local/Programs/Python/Python313/pythonw.exe"}
+                    opts.cmd = {"pythonw"}
 					opts.settings = {
 						pylsp = {
 							plugins = {
@@ -161,7 +161,7 @@ return {
 					}
 				elseif server_name == "zls" then
 					opts.root_dir = lspconfig.util.root_pattern(".zig")
-                    opts.cmd = {"C:/Users/Alexander Bohman/AppData/Local/nvim-data/mason/bin/zls.cmd"}
+                    opts.cmd = {"zls"}
                 elseif server_name == "gopls" then
                     opts.root_dir = lspconfig.util.root_pattern(".go")
 				elseif server_name == "ts_ls" then
