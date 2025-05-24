@@ -136,9 +136,47 @@ return {
 			},
 		})
 
-		-- Ensure the language servers are installed
+        function clean_ensure()
+            local ensure = {}
+            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd" }
+
+            if vim.fn.executable("zls") == 1 and vim.fn.executable("zig") == 1 then
+                table.insert(ensure, "zls")
+            end
+            if vim.fn.executable("pythonw") == 1 and vim.fn.executable("python") == 1 then
+                table.insert(ensure, "pylsp")
+            end
+            if vim.fn.executable("dotnet") == 1 then
+                table.insert(ensure, "csharp_ls")
+            end
+            if vim.fn.executable("go") == 1 then
+                table.insert(ensure, "gopls")
+            end
+            if vim.fn.executable("node") == 1 then
+                table.insert(ensure, "ts_ls")
+            end
+            if vim.fn.executable("java") == 1 and vim.fn.executable("javac") == 1 then
+                table.insert(ensure, "java_language_server")
+            end
+            if vim.fn.executable("php") == 1 then
+                table.insert(ensure, "phpactor")
+            end
+            -- if vim.fn.executable("") == 1 then
+            --     table.insert(ensure, "")
+            -- end
+            
+            for _, part in ipairs(remain) do
+                table.insert(ensure, part)
+            end
+
+            return ensure
+        end
+
+		-- Ensure the language servers are ensure_installed
+        local ensure = clean_ensure()
+
 		mason_lspconfig.setup {
-			ensure_installed = { "zls", "pylsp", "ts_ls", "html", "markdown_oxide", "csharp_ls", "cssls", "rust_analyzer", "lua_ls", "java_language_server", "phpactor", "gopls", "clangd" },
+			ensure_installed = ensure
 		}
 
 		-- Setup the language servers
