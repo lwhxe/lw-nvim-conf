@@ -139,7 +139,7 @@ return {
 
         function clean_ensure()
             local ensure = {}
-            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd" }
+            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd", "codelldb" }
 
             if vim.fn.executable("zls") == 1 and vim.fn.executable("zig") == 1 then
                 table.insert(ensure, "zls")
@@ -165,7 +165,7 @@ return {
             -- if vim.fn.executable("") == 1 then
             --     table.insert(ensure, "")
             -- end
-            
+
             for _, part in ipairs(remain) do
                 table.insert(ensure, part)
             end
