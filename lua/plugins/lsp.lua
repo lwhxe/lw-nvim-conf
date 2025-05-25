@@ -13,6 +13,7 @@ return {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 	},
+
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp = require("cmp")
@@ -107,8 +108,8 @@ return {
 		vim.keymap.set("n", "<F5>", dap.step_back)
 		vim.keymap.set("n", "<leader>gg", dap.restart)
 
-		-- Setup Mason
-		mason.setup()
+        -- Setup Mason
+        mason.setup()
 
 		-- Setup nvim-cmp
 		cmp.setup({
