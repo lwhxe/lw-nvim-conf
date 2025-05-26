@@ -47,8 +47,10 @@ For more information related to LSP & DAP Specifics, please read: (COMING SOON).
 If NeoVim receives an update, then reinstall using this ([NeoVim](https://github.com/neovim/neovim)).\
 \
 Pasting these commands into any command prompt should suffice for updating the config files.
+
     cd %appdata%/../Local/nvim
     git pull
+
 If it does not, please open an issue request.
 
 ---
