@@ -141,7 +141,7 @@ return {
             if vim.fn.executable("pythonw") == 1 and vim.fn.executable("python") == 1 then
                 table.insert(ensure, "pylsp")
             end
-            if vim.fn.executable("dotnet") == 1 then
+            if vim.fn.executable("dotnet") == 1 and vim.fn.executable("nuget") == 1 then
                 table.insert(ensure, "csharp_ls")
             end
             if vim.fn.executable("go") == 1 then
