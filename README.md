@@ -38,7 +38,7 @@ The config will not initialize nor install any LSP or DAP that has a missing dep
 For example: "gopls" is the Go Programming Language Server. Of course the Go Programming Language is a dependency.\
 This means the "go.exe" must be found in the PATH variable.\
 \
-For more information related to LSP & DAP Specifics, please read: (COMING SOON).
+For more information related to LSP & DAP Specifics, please read: [DAP&LSP.md](https://github.com/lwhxe/lw-nvim-conf/blob/main/DAP&LSP.md).
 
 ---
 
