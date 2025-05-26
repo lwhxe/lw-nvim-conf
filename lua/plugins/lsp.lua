@@ -136,7 +136,7 @@ return {
 
         function clean_ensure()
             local ensure = {}
-            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd" }
+            local remain = { "markdown_oxide", "rust_analyzer", "lua_ls", "clangd" }
 
             if vim.fn.executable("pythonw") == 1 and vim.fn.executable("python") == 1 then
                 table.insert(ensure, "pylsp")
@@ -155,6 +155,10 @@ return {
             end
             if vim.fn.executable("php") == 1 then
                 table.insert(ensure, "phpactor")
+            end
+            if vim.fn.executable("npm") == 1 then
+                table.insert(ensure, "html")
+                table.insert(ensure, "cssls")
             end
             -- if vim.fn.executable("") == 1 then
             --     table.insert(ensure, "")
