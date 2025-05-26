@@ -17,9 +17,9 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 		local cmp = require("cmp")
-		local mason = require("mason")
-		local mason_lspconfig = require("mason-lspconfig")
 		local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+		local mason_lspconfig = require("mason-lspconfig")
 
 		local dap = require("dap")
 		local ui = require("dapui")
@@ -108,9 +108,6 @@ return {
 		vim.keymap.set("n", "<F5>", dap.step_back)
 		vim.keymap.set("n", "<leader>gg", dap.restart)
 
-        -- Setup Mason
-        mason.setup()
-
 		-- Setup nvim-cmp
 		cmp.setup({
 			mapping = {
@@ -139,11 +136,8 @@ return {
 
         function clean_ensure()
             local ensure = {}
-            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd", "codelldb" }
+            local remain = { "html", "markdown_oxide", "cssls", "rust_analyzer", "lua_ls", "clangd" }
 
-            if vim.fn.executable("zls") == 1 and vim.fn.executable("zig") == 1 then
-                table.insert(ensure, "zls")
-            end
             if vim.fn.executable("pythonw") == 1 and vim.fn.executable("python") == 1 then
                 table.insert(ensure, "pylsp")
             end
@@ -156,7 +150,7 @@ return {
             if vim.fn.executable("node") == 1 then
                 table.insert(ensure, "ts_ls")
             end
-            if vim.fn.executable("java") == 1 and vim.fn.executable("javac") == 1 then
+            if vim.fn.executable("java") == 1 and vim.fn.executable("javac") == 1 and vim.fn.executable("mvn") == 1 then
                 table.insert(ensure, "java_language_server")
             end
             if vim.fn.executable("php") == 1 then
@@ -201,6 +195,7 @@ return {
 				elseif server_name == "zls" then
 					opts.root_dir = lspconfig.util.root_pattern(".zig")
                     opts.cmd = {"zls"}
+                    lspconfig.zls.capabilities = capabilities
                 elseif server_name == "gopls" then
                     opts.root_dir = lspconfig.util.root_pattern(".go")
 				elseif server_name == "ts_ls" then
