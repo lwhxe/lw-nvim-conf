@@ -30,6 +30,29 @@ There might be errors. To fix this, just restart NeoVim by using ":q" and runnin
 
 ---
 
+### LSP & DAP Specifics
+
+For specific LSP and DAP related functions like (Autocomplete, Debugging, ...) certain language servers have dependencies that you have to install.\
+The config will not initialize nor install any LSP or DAP that has a missing dependency.\
+\
+For example: "gopls" is the Go Programming Language Server. Of course the Go Programming Language is a dependency.\
+This means the "go.exe" must be found in the PATH variable.\
+\
+For more information related to LSP & DAP Specifics, please read: (COMING SOON).
+
+---
+
+### Updating Guide
+
+If NeoVim receives an update, then reinstall using this ([NeoVim](https://github.com/neovim/neovim)).\
+\
+Pasting these commands into any command prompt should suffice for updating the config files.
+    cd %appdata%/../Local/nvim
+    git pull
+If it does not, please open an issue request.
+
+---
+
 ### Submit requests or issues
 
 I want you to submit requests or bugfixes whenever you notice something off.\
