@@ -230,11 +230,11 @@ return {
                     })
 				end
 
-				-- lspconfig[server_name].setup(vim.tbl_deep_extend("force", opts, {
-				-- 	on_attach = function(client, bufnr)
-				-- 		-- You can add custom key mappings here if needed
-				-- 	end,
-				-- }))
+				lspconfig[server_name].setup(vim.tbl_deep_extend("force", opts, {
+					on_attach = function(client, bufnr)
+						-- You can add custom key mappings here if needed
+					end,
+				}))
 			end,
 		}
 	end,
